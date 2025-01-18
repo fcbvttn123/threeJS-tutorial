@@ -7,6 +7,7 @@ export function Hero() {
         </p>
         <p className="hero_tag text-gray_gradient">Full-stack Developer</p>
       </div>
+      {/* npm i three @react-three/fiber @react-three/drei react-responsive leva */}
       <div className="w-full h-full absolute inset-0"></div>
     </section>
   )
