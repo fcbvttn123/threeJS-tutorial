@@ -5,7 +5,11 @@ function NavItems() {
   return (
     <ul className="nav-ul">
       {navLinks.map(({ id, href, name }) => (
-        <li key={id} className="nav-li"></li>
+        <li key={id} className="nav-li">
+          <a href={href} className="nav-li_a" onClick={() => {}}>
+            {name}
+          </a>
+        </li>
       ))}
     </ul>
   )
@@ -45,6 +49,12 @@ export function NavBar() {
             <NavItems />
           </nav>
         </div>
+      </div>
+      {/* Mobile Menu */}
+      <div className={`nav-sidebar ${isOpen ? "max-h-screen" : "max-h-0"}`}>
+        <nav className="p-5">
+          <NavItems />
+        </nav>
       </div>
     </header>
   )
