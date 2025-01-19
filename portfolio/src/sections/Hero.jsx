@@ -3,46 +3,10 @@ import { Canvas } from "@react-three/fiber"
 import { HackerRoom } from "../components/HackerRoom"
 import { Suspense } from "react"
 import { CanvasLoader } from "../components/CanvasLoader"
-import { Leva, useControls } from "leva"
+import { useMediaQuery } from "react-responsive"
 
 export function Hero() {
-  const x = useControls("HackerRoom", {
-    positionX: {
-      value: 2.5,
-      min: -10,
-      max: 10,
-    },
-    positionY: {
-      value: 2.5,
-      min: -10,
-      max: 10,
-    },
-    positionZ: {
-      value: 2.5,
-      min: -10,
-      max: 10,
-    },
-    rotationX: {
-      value: 0,
-      min: -10,
-      max: 10,
-    },
-    rotationY: {
-      value: 0,
-      min: -10,
-      max: 10,
-    },
-    rotationZ: {
-      value: 0,
-      min: -10,
-      max: 10,
-    },
-    scale: {
-      value: 1,
-      min: 0.1,
-      max: 10,
-    },
-  })
+  const isMobile = useMediaQuery({ maxWidth: 768 })
   return (
     <section className="min-h-screen w-full flex flex-col relative">
       <div className="w-full mx-auto flex flex-col mt-20 c-space gap-3 sm:mt-36">
@@ -53,12 +17,11 @@ export function Hero() {
       </div>
       {/* npm i three @react-three/fiber @react-three/drei react-responsive leva */}
       <div className="w-full h-full absolute inset-0">
-        <Leva />
         <Canvas>
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <HackerRoom
-              scale={0.1}
+              scale={isMobile ? 0.07 : 0.1}
               position={[0.5, -7.9, 2.5]}
               rotation={[0.2, -3.2, 0.0]}
             />
