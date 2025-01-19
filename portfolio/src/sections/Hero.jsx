@@ -4,6 +4,7 @@ import { HackerRoom } from "../components/HackerRoom"
 import { Suspense } from "react"
 import { CanvasLoader } from "../components/CanvasLoader"
 import { useMediaQuery } from "react-responsive"
+import { HeroCamera } from "../components/HeroCamera"
 
 export function Hero() {
   const isMobile = useMediaQuery({ maxWidth: 768 })
@@ -20,11 +21,13 @@ export function Hero() {
         <Canvas>
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            <HackerRoom
-              scale={isMobile ? 0.07 : 0.1}
-              position={[0.5, -7.9, 2.5]}
-              rotation={[0.2, -3.2, 0.0]}
-            />
+            <HeroCamera isMobile={isMobile}>
+              <HackerRoom
+                scale={isMobile ? 0.07 : 0.1}
+                position={[0.5, -7.9, 2.5]}
+                rotation={[0.2, -3.2, 0.0]}
+              />
+            </HeroCamera>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>
