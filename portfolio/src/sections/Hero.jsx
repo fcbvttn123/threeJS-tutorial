@@ -6,9 +6,13 @@ import { CanvasLoader } from "../components/CanvasLoader"
 import { useMediaQuery } from "react-responsive"
 import { HeroCamera } from "../components/HeroCamera"
 import { Target } from "../components/Target"
+import { calculateSizes } from "../constants/index"
 
 export function Hero() {
+  const isSmall = useMediaQuery({ maxWidth: 440 })
   const isMobile = useMediaQuery({ maxWidth: 768 })
+  const isTablet = useMediaQuery({ minWidth: 758, maxWidth: 1024 })
+  const sizes = calculateSizes(isSmall, isMobile, isTablet)
   return (
     <section className="min-h-screen w-full flex flex-col relative">
       <div className="w-full mx-auto flex flex-col mt-20 c-space gap-3 sm:mt-36">
@@ -24,8 +28,8 @@ export function Hero() {
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             {/* <HeroCamera isMobile={isMobile}> */}
             <HackerRoom
-              scale={isMobile ? 0.07 : 0.1}
-              position={[0.5, -7.9, 2.5]}
+              scale={sizes.deskScale}
+              position={sizes.deskPosition}
               rotation={[0.2, -3.2, 0.0]}
             />
             <group>
