@@ -33,7 +33,7 @@ export function Hero() {
               rotation={[0.2, -3.2, 0.0]}
             />
             <group>
-              <Target position={[-13, -11, 2.5]} />
+              <Target position={sizes.targetPosition} />
             </group>
             {/* </HeroCamera> */}
             <ambientLight intensity={1} />
