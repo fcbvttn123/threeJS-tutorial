@@ -7,6 +7,7 @@ import { useMediaQuery } from "react-responsive"
 import { HeroCamera } from "../components/HeroCamera"
 import { Target } from "../components/Target"
 import { calculateSizes } from "../constants/index"
+import { ReactLogo } from "../components/ReactLogo"
 
 export function Hero() {
   const isSmall = useMediaQuery({ maxWidth: 440 })
@@ -34,6 +35,7 @@ export function Hero() {
             />
             <group>
               <Target position={sizes.targetPosition} />
+              <ReactLogo position={sizes.reactLogoPosition} />
             </group>
             {/* </HeroCamera> */}
             <ambientLight intensity={1} />
