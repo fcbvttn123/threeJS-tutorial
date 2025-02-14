@@ -29,19 +29,19 @@ export function Hero() {
         <Canvas>
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            {/* <HeroCamera isMobile={isMobile}> */}
-            <HackerRoom
-              scale={sizes.deskScale}
-              position={sizes.deskPosition}
-              rotation={[0.2, -3.2, 0.0]}
-            />
-            <group>
-              <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition} />
-              <Cube position={sizes.cubePosition} />
-              <Rings position={sizes.ringPosition} />
-            </group>
-            {/* </HeroCamera> */}
+            <HeroCamera isMobile={isMobile}>
+              <HackerRoom
+                scale={sizes.deskScale}
+                position={sizes.deskPosition}
+                rotation={[0.2, -3.2, 0.0]}
+              />
+              <group>
+                <Target position={sizes.targetPosition} />
+                <ReactLogo position={sizes.reactLogoPosition} />
+                <Cube position={sizes.cubePosition} />
+                <Rings position={sizes.ringPosition} />
+              </group>
+            </HeroCamera>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} />
           </Suspense>
