@@ -9,6 +9,7 @@ import { Target } from "../components/Target"
 import { calculateSizes } from "../constants/index"
 import { ReactLogo } from "../components/ReactLogo"
 import { Cube } from "../components/Cube"
+import { Rings } from "../components/Rings"
 
 export function Hero() {
   const isSmall = useMediaQuery({ maxWidth: 440 })
@@ -38,6 +39,7 @@ export function Hero() {
               <Target position={sizes.targetPosition} />
               <ReactLogo position={sizes.reactLogoPosition} />
               <Cube position={sizes.cubePosition} />
+              <Rings position={sizes.ringPosition} />
             </group>
             {/* </HeroCamera> */}
             <ambientLight intensity={1} />
