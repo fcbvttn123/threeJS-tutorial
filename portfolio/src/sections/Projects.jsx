@@ -1,5 +1,8 @@
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { myProjects } from "../constants"
+import { Canvas } from "@react-three/fiber"
+import { Center } from "@react-three/drei"
+import { CanvasLoader } from "../components/CanvasLoader"
 
 const projectCount = myProjects.length
 
@@ -88,6 +91,17 @@ export function Projects() {
               />
             </button>
           </div>
+        </div>
+        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
+          <Canvas>
+            <ambientLight intensity={1} />
+            <directionalLight position={[10, 10, 5]} />
+            <Center>
+              <Suspense fallback={<CanvasLoader />}>
+                <group></group>
+              </Suspense>
+            </Center>
+          </Canvas>
         </div>
       </div>
     </section>
