@@ -1,5 +1,5 @@
-import React, { useRef } from "react"
-import { useGLTF, useAnimations, useVideoTexture } from "@react-three/drei"
+import React, { useEffect, useRef } from "react"
+import { useGLTF, useVideoTexture } from "@react-three/drei"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 
@@ -15,6 +15,11 @@ export function DemoComputer(props) {
       duration: 1,
       ease: "power3.out",
     })
+  }, [txt])
+  useEffect(() => {
+    if (txt) {
+      txt.flipY = false
+    }
   }, [txt])
   return (
     <group ref={group} {...props} dispose={null}>
