@@ -1,5 +1,7 @@
 import React, { useRef } from "react"
 import { useGLTF, useAnimations, useVideoTexture } from "@react-three/drei"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
 
 export function DemoComputer(props) {
   const group = useRef()
@@ -7,6 +9,13 @@ export function DemoComputer(props) {
   const txt = useVideoTexture(
     props.texture ? props.texture : "/textures/project/project1.mp4"
   )
+  useGSAP(() => {
+    gsap.from(group.current.rotation, {
+      y: Math.PI / 2,
+      duration: 1,
+      ease: "power3.out",
+    })
+  }, [txt])
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
