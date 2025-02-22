@@ -4,7 +4,9 @@ import { useGLTF, useAnimations, useVideoTexture } from "@react-three/drei"
 export function DemoComputer(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF("/models/computer.glb")
-  const txt = useVideoTexture("/textures/project/project1.mp4")
+  const txt = useVideoTexture(
+    props.texture ? props.texture : "/textures/project/project1.mp4"
+  )
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
