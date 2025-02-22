@@ -1,5 +1,5 @@
 import Globe from "react-globe.gl"
-// import { Button } from "../components/Button.jsx"
+import { Button } from "../components/Button.jsx"
 
 export function About() {
   return (
@@ -60,7 +60,7 @@ export function About() {
                 I&apos;m based in Rjieka, Croatia and open to remote work
                 worldwide.
               </p>
-              {/* <Button name="Contact Me" isBeam containerClass="w-full mt-10" /> */}
+              <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
             </div>
           </div>
         </div>
